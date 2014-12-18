@@ -71,14 +71,11 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
         }
     }
 else:
-    # Running in development, so use a local MySQL database.
+    # Running in development, so use a local database.
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '173.194.251.96',
-            'NAME': 'datastore',
-            'USER': 'root',
-            'PASSWORD': 'bigtimesecurity',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
